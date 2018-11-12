@@ -2,7 +2,7 @@
 
 ## Assigment 01
 
-Follow the instructions explained in the problem video and try to implement a solution on your own. Compare it with my solution (video + downloadable files) thereafter.
+Follow the instructions explained in the problem video and try to implement a solution on your own. Compare it with my solution [(video + downloadable files)](solution) thereafter.
 
 ### The instructions are:
 
