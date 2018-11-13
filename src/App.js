@@ -3,8 +3,8 @@ import './App.css'
 import Person from './components/Person/Person'
 
 const persons = [
-  { name: 'Jose Luis', age: 41 },
-  { name: 'Elle McPherson', age: 54 }
+  { name: 'Jose Luis', age: 41, id: 'fistro1' },
+  { name: 'Elle McPherson', age: 54, id: 'fistro2' }
 ]
 
 class App extends Component {
@@ -13,16 +13,15 @@ class App extends Component {
     visible: true
   }
 
-  nameChangeHandler = event => {
-    console.log('change')
-    this.setState({
-      persons: persons.map(i => {
-        return {
-          name: event.target.value,
-          age: i.age
-        }
-      })
-    })
+  nameChangeHandler = (event, id) => {
+    console.log(id, event.target.value)
+    const personIdx = this.state.persons.findIndex(p => p.id === id)
+    const person = { ...this.state.persons[personIdx] }
+    person.name = event.target.value
+
+    const personList = [...this.state.persons]
+    personList[personIdx] = person
+    this.setState({ persons: personList })
   }
 
   fistreHandler = idx => {
@@ -34,6 +33,12 @@ class App extends Component {
     this.setState({ visible: !this.state.visible })
   }
 
+  deletePersonHandler = idx => {
+    const tmpPersons = [...this.state.persons]
+    tmpPersons.splice(idx, 1)
+    this.setState({ persons: tmpPersons })
+  }
+
   render() {
     const style = {
       backgroundColor: 'white',
@@ -42,6 +47,28 @@ class App extends Component {
       padding: '8px',
       cursor: 'pointer'
     }
+
+    let personRender = null
+    if (this.state.visible) {
+      personRender = (
+        <div>
+          {this.state.persons.map((person, index) => {
+            return (
+              <Person
+                name={person.name}
+                age={person.age}
+                delegate={() => this.deletePersonHandler(index)}
+                key={person.id}
+                updateDelegate={event =>
+                  this.nameChangeHandler(event, person.id)
+                }
+              />
+            )
+          })}
+        </div>
+      )
+    }
+
     return (
       <div className="App">
         <h1>Hi, I'm a react app</h1>
@@ -51,24 +78,7 @@ class App extends Component {
         <button onClick={this.toggleHandler} style={style}>
           Toggle
         </button>
-        {this.state.visible ? (
-          <div>
-            <Person
-              name={this.state.persons[0].name}
-              age={this.state.persons[0].age}
-              delegate={this.fistreHandler.bind(this, 0)}
-              updateDelegate={this.nameChangeHandler}
-            />
-            <Person
-              name={this.state.persons[1].name}
-              age={this.state.persons[1].age}
-              delegate={this.fistreHandler.bind(this, 1)}
-              updateNameDelegate={this.nameChangeHandler}
-            >
-              My hobbies: modelling
-            </Person>
-          </div>
-        ) : null}
+        {personRender}
       </div>
     )
   }
