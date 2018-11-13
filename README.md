@@ -1,6 +1,6 @@
 # Udemy course React 16 - The Complete Guide (incl. React Router 4 & Redux)
 
-## Assigment 01
+## Assigment 01 - ETA: 34 minutes
 
 Follow the instructions explained in the problem video and try to implement a solution on your own. Compare it with my solution [(video + downloadable files)](solution) thereafter.
 
