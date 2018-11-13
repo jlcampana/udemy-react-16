@@ -39,13 +39,14 @@ class App extends Component {
   }
 
   render() {
-    const style = {
-      backgroundColor: 'white',
-      font: 'inherit',
-      border: '1x solid blue',
-      padding: '8px',
-      cursor: 'pointer'
-    }
+    let btnClass = ''
+    // const style = {
+    //   backgroundColor: 'white',
+    //   font: 'inherit',
+    //   border: '1x solid blue',
+    //   padding: '8px',
+    //   cursor: 'pointer'
+    // }
 
     let personRender = null
     if (this.state.visible) {
@@ -66,6 +67,7 @@ class App extends Component {
           })}
         </div>
       )
+      btnClass = classes.Red
     }
 
     const assignedClasses = []
@@ -84,7 +86,7 @@ class App extends Component {
         {/* <button style={style} onClick={this.fistreHandler.bind(this, 0)}>
           Fistrea
         </button> */}
-        <button onClick={this.toggleHandler} style={style}>
+        <button onClick={this.toggleHandler} className={btnClass}>
           Toggle
         </button>
         {personRender}
