@@ -30,6 +30,10 @@ class App extends Component {
     this.setState({ persons })
   }
 
+  toggleHandler = () => {
+    this.setState({ visible: !this.state.visible })
+  }
+
   render() {
     const style = {
       backgroundColor: 'white',
@@ -44,20 +48,27 @@ class App extends Component {
         <button style={style} onClick={this.fistreHandler.bind(this, 0)}>
           Fistrea
         </button>
-        <Person
-          name={this.state.persons[0].name}
-          age={this.state.persons[0].age}
-          delegate={this.fistreHandler.bind(this, 0)}
-          updateDelegate={this.nameChangeHandler}
-        />
-        <Person
-          name={this.state.persons[1].name}
-          age={this.state.persons[1].age}
-          delegate={this.fistreHandler.bind(this, 1)}
-          updateNameDelegate={this.nameChangeHandler}
-        >
-          My hobbies: modelling
-        </Person>
+        <button onClick={this.toggleHandler} style={style}>
+          Toggle
+        </button>
+        {this.state.visible ? (
+          <div>
+            <Person
+              name={this.state.persons[0].name}
+              age={this.state.persons[0].age}
+              delegate={this.fistreHandler.bind(this, 0)}
+              updateDelegate={this.nameChangeHandler}
+            />
+            <Person
+              name={this.state.persons[1].name}
+              age={this.state.persons[1].age}
+              delegate={this.fistreHandler.bind(this, 1)}
+              updateNameDelegate={this.nameChangeHandler}
+            >
+              My hobbies: modelling
+            </Person>
+          </div>
+        ) : null}
       </div>
     )
   }
