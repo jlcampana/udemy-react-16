@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import classes from './App.css'
 import Persons from '../components/Persons/Persons'
 import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary'
+import Cockpit from '../components/Cockpit/Cockpit'
+
 const persons = [
   { name: 'Jose Luis', age: 41, id: 'fistro1' },
   { name: 'Elle McPherson', age: 54, id: 'fistro2' }
@@ -56,29 +58,14 @@ class App extends Component {
       btnClass = classes.Red
     }
 
-    const assignedClasses = []
-
-    if (this.state.persons.length <= 1) {
-      assignedClasses.push(classes.red)
-    }
-    if (this.state.persons.length <= 2) {
-      assignedClasses.push(classes.bold)
-    }
-
     return (
-      <ErrorBoundary>
-        <div className={classes.App}>
-          <h1>Hi, I'm a react app</h1>
-          <p className={assignedClasses.join(' ')}>Fistros</p>
-          {/* <button style={style} onClick={this.fistreHandler.bind(this, 0)}>
-          Fistrea
-        </button> */}
-          <button onClick={this.toggleHandler} className={btnClass}>
-            Toggle
-          </button>
-          {personRender}
-        </div>
-      </ErrorBoundary>
+      <div className={classes.App}>
+        <Cockpit
+          showPersons={this.state.visible}
+          persons={this.state.persons}
+        />
+        {persons}
+      </div>
     )
   }
 }
