@@ -3,6 +3,7 @@
 ## Pre-requisites
 
 - Create React App <https://github.com/facebook/create-react-app>
+- Install React Developer Tools for Chrome <https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en>
 
 ## Available Scripts
 
