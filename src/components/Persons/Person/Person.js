@@ -1,5 +1,5 @@
 /**
- * @class
+ * @module
  * Stateless component type
  * Utilizar siempre que se pueda!
  * No manipula el state de la aplicación
