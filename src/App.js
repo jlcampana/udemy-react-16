@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
 import Person from './components/Person/Person'
-import Radium, { StyleRoot } from 'radium' //Media queries & selectors
 const persons = [
   { name: 'Jose Luis', age: 41, id: 'fistro1' },
   { name: 'Elle McPherson', age: 54, id: 'fistro2' }
@@ -45,11 +44,7 @@ class App extends Component {
       font: 'inherit',
       border: '1x solid blue',
       padding: '8px',
-      cursor: 'pointer',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'black'
-      }
+      cursor: 'pointer'
     }
 
     let personRender = null
@@ -83,21 +78,19 @@ class App extends Component {
     }
 
     return (
-      <StyleRoot>
-        <div className="App">
-          <h1>Hi, I'm a react app</h1>
-          <p className={classes.join(' ')}>Fistros</p>
-          {/* <button style={style} onClick={this.fistreHandler.bind(this, 0)}>
+      <div className="App">
+        <h1>Hi, I'm a react app</h1>
+        <p className={classes.join(' ')}>Fistros</p>
+        {/* <button style={style} onClick={this.fistreHandler.bind(this, 0)}>
           Fistrea
         </button> */}
-          <button onClick={this.toggleHandler} style={style}>
-            Toggle
-          </button>
-          {personRender}
-        </div>
-      </StyleRoot>
+        <button onClick={this.toggleHandler} style={style}>
+          Toggle
+        </button>
+        {personRender}
+      </div>
     )
   }
 }
 
-export default Radium(App)
+export default App
