@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import classes from './App.css'
-import Person from './components/Person/Person'
-import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
+import Persons from '../components/Persons/Persons'
+import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary'
 const persons = [
   { name: 'Jose Luis', age: 41, id: 'fistro1' },
   { name: 'Elle McPherson', age: 54, id: 'fistro2' }
@@ -41,31 +41,16 @@ class App extends Component {
 
   render() {
     let btnClass = ''
-    // const style = {
-    //   backgroundColor: 'white',
-    //   font: 'inherit',
-    //   border: '1x solid blue',
-    //   padding: '8px',
-    //   cursor: 'pointer'
-    // }
-
     let personRender = null
+
     if (this.state.visible) {
       personRender = (
         <div>
-          {this.state.persons.map((person, index) => {
-            return (
-              <Person
-                name={person.name}
-                age={person.age}
-                delegate={() => this.deletePersonHandler(index)}
-                key={person.id}
-                updateDelegate={event =>
-                  this.nameChangeHandler(event, person.id)
-                }
-              />
-            )
-          })}
+          <Persons
+            persons={this.state.persons}
+            deletePersonHandler={this.deletePersonHandler}
+            nameChangeHandler={this.nameChangeHandler}
+          />
         </div>
       )
       btnClass = classes.Red
