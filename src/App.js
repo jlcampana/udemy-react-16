@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './App.css'
+import classes from './App.css'
 import Person from './components/Person/Person'
 const persons = [
   { name: 'Jose Luis', age: 41, id: 'fistro1' },
@@ -68,19 +68,19 @@ class App extends Component {
       )
     }
 
-    const classes = []
+    const assignedClasses = []
 
     if (this.state.persons.length <= 1) {
-      classes.push('red')
+      assignedClasses.push(classes.red)
     }
     if (this.state.persons.length <= 2) {
-      classes.push('bold')
+      assignedClasses.push(classes.bold)
     }
 
     return (
-      <div className="App">
+      <div className={classes.App}>
         <h1>Hi, I'm a react app</h1>
-        <p className={classes.join(' ')}>Fistros</p>
+        <p className={assignedClasses.join(' ')}>Fistros</p>
         {/* <button style={style} onClick={this.fistreHandler.bind(this, 0)}>
           Fistrea
         </button> */}
