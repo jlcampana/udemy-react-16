@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react'
 import classes from './App.css'
 import Persons from '../components/Persons/Persons'
-import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary'
 import Cockpit from '../components/Cockpit/Cockpit'
-
+import WithClass from '../components/Aux/WithClass'
+import Aux from '../components/Aux/Aux'
 const persons = [
   { name: 'Jose Luis', age: 41, id: 'fistro1' },
   { name: 'Elle McPherson', age: 54, id: 'fistro2' }
@@ -84,24 +84,22 @@ class App extends PureComponent {
     }
 
     return (
-      <div className={classes.App}>
-        <ErrorBoundary>
-          <button
-            onClick={() => {
-              this.setState({ visible: true })
-            }}
-          >
-            Show persons
-          </button>
-          <Cockpit
-            toggleHandler={this.toggleHandler}
-            persons={this.state.persons}
-          />
-          {personRender}
-        </ErrorBoundary>
-      </div>
+      <Aux>
+        <button
+          onClick={() => {
+            this.setState({ visible: true })
+          }}
+        >
+          Show persons
+        </button>
+        <Cockpit
+          toggleHandler={this.toggleHandler}
+          persons={this.state.persons}
+        />
+        {personRender}
+      </Aux>
     )
   }
 }
 
-export default App
+export default WithClass(App, classes.App)

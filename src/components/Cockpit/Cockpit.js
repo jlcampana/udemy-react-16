@@ -13,13 +13,13 @@ const cockpit = props => {
   }
 
   return (
-    <div className={classes.Cockpit}>
+    <>
       <h1>Hi, I'm a react app</h1>
       <p className={assignedClasses.join(' ')}>Fistros</p>
       <button onClick={props.toggleHandler} className={btnClass}>
         Toggle
       </button>
-    </div>
+    </>
   )
 }
 
