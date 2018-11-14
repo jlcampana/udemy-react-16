@@ -10,9 +10,17 @@ const persons = [
 ]
 
 class App extends Component {
-  state = {
-    persons,
-    visible: false
+  constructor(props) {
+    super(props)
+    console.log('[App.js] constructor', props)
+    this.state = {
+      persons,
+      visible: false
+    }
+  }
+
+  componentWillMount() {
+    console.log('[App.js] componentWillMount()')
   }
 
   nameChangeHandler = (event, id) => {
@@ -42,6 +50,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('[App.js] render()')
     let personRender = null
 
     if (this.state.visible) {
@@ -56,11 +65,13 @@ class App extends Component {
 
     return (
       <div className={classes.App}>
-        <Cockpit
-          toggleHandler={this.toggleHandler}
-          persons={this.state.persons}
-        />
-        {personRender}
+        <ErrorBoundary>
+          <Cockpit
+            toggleHandler={this.toggleHandler}
+            persons={this.state.persons}
+          />
+          {personRender}
+        </ErrorBoundary>
       </div>
     )
   }

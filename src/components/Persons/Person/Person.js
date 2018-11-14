@@ -6,7 +6,15 @@ import React, { Component } from 'react'
 import classes from './Person.css'
 
 class Person extends Component {
+  componentWillMount() {
+    console.log('[Person.js] componentWillMount()')
+  }
+  componentDidMount() {
+    console.log('[Person.js] componentDidMount()')
+  }
   render() {
+    console.log('[Person.js] render()')
+
     return (
       <div className={classes.Person}>
         <p onClick={this.props.delegate}>
