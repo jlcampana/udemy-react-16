@@ -1,17 +1,21 @@
-import React from 'react'
+/**
+ * STATE COMPONENT
+ */
+import React, { Component } from 'react'
 import Person from './Person/Person'
 
-const persons = props =>
-  props.persons.map((person, index) => {
-    return (
+class Persons extends Component {
+  render() {
+    return this.props.persons.map((person, index) => (
       <Person
         name={person.name}
         age={person.age}
-        delegate={() => props.deletePersonHandler(index)}
+        delegate={() => this.props.deletePersonHandler(index)}
         key={person.id}
-        updateDelegate={event => props.nameChangeHandler(event, person.id)}
+        updateDelegate={event => this.props.nameChangeHandler(event, person.id)}
       />
-    )
-  })
+    ))
+  }
+}
 
-export default persons
+export default Persons

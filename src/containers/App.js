@@ -31,40 +31,36 @@ class App extends Component {
     this.setState({ persons })
   }
 
-  toggleHandler = () => {
-    this.setState({ visible: !this.state.visible })
-  }
-
   deletePersonHandler = idx => {
     const tmpPersons = [...this.state.persons]
     tmpPersons.splice(idx, 1)
     this.setState({ persons: tmpPersons })
   }
 
+  toggleHandler = () => {
+    this.setState({ visible: !this.state.visible })
+  }
+
   render() {
-    let btnClass = ''
     let personRender = null
 
     if (this.state.visible) {
       personRender = (
-        <div>
-          <Persons
-            persons={this.state.persons}
-            deletePersonHandler={this.deletePersonHandler}
-            nameChangeHandler={this.nameChangeHandler}
-          />
-        </div>
+        <Persons
+          persons={this.state.persons}
+          deletePersonHandler={this.deletePersonHandler}
+          nameChangeHandler={this.nameChangeHandler}
+        />
       )
-      btnClass = classes.Red
     }
 
     return (
       <div className={classes.App}>
         <Cockpit
-          showPersons={this.state.visible}
+          toggleHandler={this.toggleHandler}
           persons={this.state.persons}
         />
-        {persons}
+        {personRender}
       </div>
     )
   }

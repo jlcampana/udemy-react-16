@@ -12,11 +12,16 @@ const cockpit = props => {
     assignedClasses.push(classes.bold)
   }
 
+  const toggleHandler = () => {
+    props.visible = !props.visible
+    // this.setState({ visible: !this.state.visible })
+  }
+
   return (
     <div className={classes.Cockpit}>
       <h1>Hi, I'm a react app</h1>
       <p className={assignedClasses.join(' ')}>Fistros</p>
-      <button onClick={this.toggleHandler} className={btnClass}>
+      <button onClick={props.toggleHandler} className={btnClass}>
         Toggle
       </button>
     </div>
