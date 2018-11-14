@@ -32,6 +32,7 @@ class Persons extends Component {
         name={person.name}
         age={person.age}
         delegate={() => this.props.deletePersonHandler(index)}
+        position={index}
         key={person.id}
         updateDelegate={event => this.props.nameChangeHandler(event, person.id)}
       />

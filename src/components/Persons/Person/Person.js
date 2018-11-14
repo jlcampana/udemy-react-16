@@ -12,6 +12,9 @@ class Person extends PureComponent {
   }
   componentDidMount() {
     console.log('[Person.js] componentDidMount()')
+    if (this.props.position === 0) {
+      this.inputElement.focus()
+    }
   }
   componentDidUpdate() {
     console.log('[Person.js] componentDidUpdate()')
@@ -26,6 +29,9 @@ class Person extends PureComponent {
         </p>
         <p>{this.props.children}</p>
         <input
+          ref={inp => {
+            this.inputElement = inp
+          }}
           type="text"
           onChange={this.props.updateDelegate}
           value={this.props.name}
