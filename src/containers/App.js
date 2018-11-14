@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import classes from './App.css'
 import Persons from '../components/Persons/Persons'
 import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary'
@@ -9,7 +9,10 @@ const persons = [
   { name: 'Elle McPherson', age: 54, id: 'fistro2' }
 ]
 
-class App extends Component {
+// By using PureComponent, you don't need to control the shouldUpdate
+// Use always PureComponents
+// Use Components when you know your component won't be updated
+class App extends PureComponent {
   constructor(props) {
     super(props)
     console.log('[App.js] constructor', props)
@@ -26,13 +29,13 @@ class App extends Component {
     console.log('[App.js] componentDidMount()')
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('[App.js] shouldComponentUpdate', nextProps, nextState)
-    return (
-      nextProps.persons !== this.props.persons ||
-      nextState.visible !== this.state.visible
-    )
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log('[App.js] shouldComponentUpdate', nextProps, nextState)
+  //   return (
+  //     nextProps.persons !== this.props.persons ||
+  //     nextState.visible !== this.state.visible
+  //   )
+  // }
   componentWillUpdate(nextProps, nextState) {
     console.log('[App.js] componentWillUpdate', nextProps, nextState)
   }
