@@ -18,7 +18,8 @@ class App extends PureComponent {
     console.log('[App.js] constructor', props)
     this.state = {
       persons,
-      visible: false
+      visible: false,
+      toggleClicked: 0
     }
   }
 
@@ -66,7 +67,12 @@ class App extends PureComponent {
   }
 
   toggleHandler = () => {
-    this.setState({ visible: !this.state.visible })
+    this.setState((prevState, props) => {
+      return {
+        visible: !this.state.visible,
+        toggleClicked: prevState.toggleClicked + 1
+      }
+    })
   }
 
   render() {
