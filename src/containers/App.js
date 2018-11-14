@@ -22,11 +22,20 @@ class App extends Component {
   componentWillMount() {
     console.log('[App.js] componentWillMount()')
   }
-
   componentDidMount() {
     console.log('[App.js] componentDidMount()')
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('[App.js] shouldComponentUpdate', nextProps, nextState)
+    return (
+      nextProps.persons !== this.props.persons ||
+      nextState.visible !== this.state.visible
+    )
+  }
+  componentWillUpdate(nextProps, nextState) {
+    console.log('[App.js] componentWillUpdate', nextProps, nextState)
+  }
   componentDidUpdate() {
     console.log('[App.js] componentDidUpdate()')
   }
@@ -74,6 +83,13 @@ class App extends Component {
     return (
       <div className={classes.App}>
         <ErrorBoundary>
+          <button
+            onClick={() => {
+              this.setState({ visible: true })
+            }}
+          >
+            Show persons
+          </button>
           <Cockpit
             toggleHandler={this.toggleHandler}
             persons={this.state.persons}

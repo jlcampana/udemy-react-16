@@ -11,13 +11,12 @@ class Persons extends Component {
   componentDidMount() {
     console.log('[Persons.js] componentDidMount()')
   }
-
   componentWillReceiveProps(nextProps) {
     console.log('[Persons.js] componentWillReceiveProps', nextProps)
   }
   shouldComponentUpdate(nextProps, nextState) {
     console.log('[Persons.js] shouldComponentUpdate', nextProps, nextState)
-    return nextProps.persons !== this.props.persons
+    return true
   }
   componentWillUpdate(nextProps, nextState) {
     console.log('[Persons.js] componentWillUpdate', nextProps, nextState)
