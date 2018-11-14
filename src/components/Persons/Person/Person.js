@@ -4,6 +4,7 @@
  */
 import React, { PureComponent } from 'react'
 import classes from './Person.css'
+import PropTypes from 'prop-types'
 
 class Person extends PureComponent {
   componentWillMount() {
@@ -34,4 +35,10 @@ class Person extends PureComponent {
   }
 }
 
+Person.propTypes = {
+  updateDelegate: PropTypes.func,
+  name: PropTypes.string,
+  age: PropTypes.number,
+  delegate: PropTypes.func
+}
 export default Person
