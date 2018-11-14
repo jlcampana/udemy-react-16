@@ -12,6 +12,9 @@ class Person extends Component {
   componentDidMount() {
     console.log('[Person.js] componentDidMount()')
   }
+  componentDidUpdate() {
+    console.log('[Person.js] componentDidUpdate()')
+  }
   render() {
     console.log('[Person.js] render()')
 

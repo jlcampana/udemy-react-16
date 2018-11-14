@@ -27,6 +27,10 @@ class App extends Component {
     console.log('[App.js] componentDidMount()')
   }
 
+  componentDidUpdate() {
+    console.log('[App.js] componentDidUpdate()')
+  }
+
   nameChangeHandler = (event, id) => {
     console.log(id, event.target.value)
     const personIdx = this.state.persons.findIndex(p => p.id === id)
