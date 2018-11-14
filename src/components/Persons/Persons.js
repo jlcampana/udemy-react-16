@@ -5,11 +5,16 @@ import React, { Component } from 'react'
 import Person from './Person/Person'
 
 class Persons extends Component {
+  constructor(props) {
+    super(props)
+    this.lastPersonRef = React.createRef()
+  }
   componentWillMount() {
     console.log('[Persons.js] componentWillMount()')
   }
   componentDidMount() {
     console.log('[Persons.js] componentDidMount()')
+    this.lastPersonRef.current.focus()
   }
   componentWillReceiveProps(nextProps) {
     console.log('[Persons.js] componentWillReceiveProps', nextProps)

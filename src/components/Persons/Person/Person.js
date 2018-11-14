@@ -7,14 +7,23 @@ import classes from './Person.css'
 import PropTypes from 'prop-types'
 
 class Person extends PureComponent {
+  constructor(props) {
+    super(props)
+
+    this.inputElement
+  }
+
+  focus() {
+    if (this.props.position === 0) {
+      this.inputElement.current.focus()
+    }
+  }
+
   componentWillMount() {
     console.log('[Person.js] componentWillMount()')
   }
   componentDidMount() {
     console.log('[Person.js] componentDidMount()')
-    if (this.props.position === 0) {
-      this.inputElement.focus()
-    }
   }
   componentDidUpdate() {
     console.log('[Person.js] componentDidUpdate()')
@@ -29,9 +38,7 @@ class Person extends PureComponent {
         </p>
         <p>{this.props.children}</p>
         <input
-          ref={inp => {
-            this.inputElement = inp
-          }}
+          ref={this.inputElement}
           type="text"
           onChange={this.props.updateDelegate}
           value={this.props.name}
