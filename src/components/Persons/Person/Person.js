@@ -1,9 +1,14 @@
+/**
+ *
+ */
+
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import classes from './Person.css'
 import withClass from '../../../hoc/WithClass'
 import Aux from '../../../hoc/Aux'
+import { AuthContext } from '../../../containers/App'
 
 class Person extends Component {
   constructor(props) {
@@ -31,7 +36,9 @@ class Person extends Component {
     console.log('[Person.js] Inside render()')
     return (
       <Aux>
-        {this.props.authenticated ? <p>LOGGED</p> : null}
+        <AuthContext.Consumer>
+          {auth => (auth ? <p>LOGGED</p> : null)}
+        </AuthContext.Consumer>
         <p onClick={this.props.click}>
           I'm {this.props.name} and I am {this.props.age} years old!
         </p>
