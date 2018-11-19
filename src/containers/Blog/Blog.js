@@ -7,7 +7,8 @@ import './Blog.css'
 
 class Blog extends Component {
   state = {
-    posts: []
+    posts: [],
+    selectedPostId: undefined
   }
   componentDidMount() {
     //No sería mejor crear servicios y llamarlos desde este método?????
@@ -24,16 +25,28 @@ class Blog extends Component {
         console.error(err)
       })
   }
+
+  postSelectedHandler = id => {
+    this.setState({ selectedPostId: id })
+  }
+
   render() {
     const posts = this.state.posts.map(post => {
-      return <Post key={post.id} title={post.title} author={post.author} />
+      return (
+        <Post
+          key={post.id}
+          title={post.title}
+          author={post.author}
+          clicked={() => this.postSelectedHandler(post.id)}
+        />
+      )
     })
 
     return (
       <div>
         <section className="Posts">{posts}</section>
         <section>
-          <FullPost />
+          <FullPost id={this.state.selectedPostId} />
         </section>
         <section>
           <NewPost />
