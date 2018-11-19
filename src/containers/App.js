@@ -25,6 +25,19 @@ class App extends PureComponent {
     }
   }
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    console.log(
+      '[UPDATE App.js] Inside getDerivedStateFromProps',
+      nextProps,
+      prevState
+    )
+  }
+
+  getSnapshotBeforeUpdate() {
+    // Un sitio ideal para guardar la scroll position
+    console.log('[UPDATE App.js] Inside getSnapshotBeforeUpdate')
+  }
+
   componentWillMount() {
     console.log('[App.js] Inside componentWillMount()')
   }
