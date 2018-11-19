@@ -47,3 +47,10 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Useful Resources and links
+
+- State & Lifecycle: <https://reactjs.org/docs/state-and-lifecycle.html>
+- PropTypes: <https://reactjs.org/docs/typechecking-with-proptypes.html>
+- Higher Order Components: <https://reactjs.org/docs/higher-order-components.html>
+- Refs: <https://reactjs.org/docs/refs-and-the-dom.html>
