@@ -1,26 +1,31 @@
-import React from 'react'
-import classes from './Cockpit.css'
+import React from 'react';
 
-const cockpit = props => {
-  const assignedClasses = []
-  let btnClass = ''
+import classes from './Cockpit.css';
+import Aux from '../../hoc/Aux';
 
-  if (props.persons.length <= 1) {
-    assignedClasses.push(classes.red)
-  }
-  if (props.persons.length <= 2) {
-    assignedClasses.push(classes.bold)
-  }
+const cockpit = ( props ) => {
+    const assignedClasses = [];
+    let btnClass = classes.Button;
+    if ( props.showPersons ) {
+        btnClass = [classes.Button, classes.Red].join( ' ' );
+    }
 
-  return (
-    <>
-      <h1>Hi, I'm a react app</h1>
-      <p className={assignedClasses.join(' ')}>Fistros</p>
-      <button onClick={props.toggleHandler} className={btnClass}>
-        Toggle
-      </button>
-    </>
-  )
-}
+    if ( props.persons.length <= 2 ) {
+        assignedClasses.push( classes.red ); // classes = ['red']
+    }
+    if ( props.persons.length <= 1 ) {
+        assignedClasses.push( classes.bold ); // classes = ['red', 'bold']
+    }
 
-export default cockpit
+    return (
+        <Aux>
+            <h1>{props.appTitle}</h1>
+            <p className={assignedClasses.join( ' ' )}>This is really working!</p>
+            <button
+                className={btnClass}
+                onClick={props.clicked}>Toggle Persons</button>
+        </Aux>
+    );
+};
+
+export default cockpit;
