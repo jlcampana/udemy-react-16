@@ -1,3 +1,6 @@
+/**
+ *
+ */
 import React from 'react'
 
 import classes from './Cockpit.css'
@@ -29,4 +32,4 @@ const cockpit = props => {
   )
 }
 
-export default cockpit
+export default React.memo(cockpit) //Sólo se re-renderizará cuando se actualicen los props
