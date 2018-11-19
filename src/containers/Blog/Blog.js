@@ -14,7 +14,7 @@ class Blog extends Component {
   componentDidMount() {
     //No sería mejor crear servicios y llamarlos desde este método?????
     axios
-      .get('https://jsonplaceholder.typicode.com/posts')
+      .get('/posts')
       .then(res => {
         const posts = res.data.slice(0, 4).map(post => {
           return { ...post, author: 'Fistro' }
