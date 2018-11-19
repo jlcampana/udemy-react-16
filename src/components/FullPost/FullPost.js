@@ -26,6 +26,7 @@ class FullPost extends Component {
           .then(response => {
             this.setState({ post: response.data })
           })
+          .catch(err => {})
       }
     }
   }
