@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+# This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
@@ -12,6 +12,16 @@ var myInterceptor = axios.interceptors.request.use(function () {/*...*/});
 axios.interceptors.request.eject(myInterceptor);
 ```
 
+### Useful resources and links
+
+Sección 9, Clase 167
+
+- Axios Docs: https://github.com/axios/axios
+- [http-01-starting-setup.zip](resources/http-01-starting-setup.zip)
+- [http-02-after-get.zip](resources/http-02-after-get.zip)
+- [http-03-after-post-error.zip](resources/http-03-after-post-error.zip)
+- [http-04-after-global-axios.zip](resources/http-04-after-global-axios.zip)
+- [http-05-finished.zip](resources/http-05-finished.zip)
 
 ## Table of Contents
 
